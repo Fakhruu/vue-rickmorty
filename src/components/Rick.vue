@@ -25,7 +25,7 @@ export default {
 </script>
 
 <template>
-  <div class="greetings">
+  <div class="row grid grid-cols-5">
           <input v-model="rickName" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="text" placeholder="Search">
     <button @click="fetchRick" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Fetch</button>
   </div>
@@ -36,7 +36,15 @@ export default {
   <div class="px-6 py-4">
     <div class="font-bold text-xl mb-2">{{rick.name}}</div>
     <p class="text-gray-700 text-base">
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus quia, nulla! Maiores et perferendis eaque, exercitationem praesentium nihil.
+      Episode:
+    <ul class="overflow-auto h-24">      
+    <span v-for="ep in rick.episode" :key="rick.episode">
+      <a v-bind:href="ep" target="_blank" rel="noopener noreferrer">
+        {{ep}}
+      </a>
+      <br />
+    </span>
+</ul>
     </p>
   </div>
   <div class="px-6 pt-4 pb-2">
